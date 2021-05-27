@@ -1,5 +1,6 @@
 {
     "java.import.gradle.offline.enabled": true,
     "java.maven.downloadSources": true,
-    "java.saveActions.organizeImports": true
+    "java.saveActions.organizeImports": true,
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
