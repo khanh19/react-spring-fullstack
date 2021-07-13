@@ -1,4 +1,5 @@
 package com.example.backend.domain;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,26 +14,24 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-
-
 @Entity
-public class Project{
-    //The @Idannotation is inherited from javax.persistence.Id， 
-    //indicating the member field below is the primary key of current entity
-    @Id 
-    //The @GeneratedValue annotation is to configure the way of
+public class Project {
+    // The @Idannotation is inherited from javax.persistence.Id，
+    // indicating the member field below is the primary key of current entity
+    @Id
+    // The @GeneratedValue annotation is to configure the way of
     // increment of the specified column(field)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @NotBlank(message = "Project name is required")
     private String projectName;
-    
+
     @NotBlank(message = "Project Identifier is required")
-    @Size(min=4, max=5, message="4-5 character")
+    @Size(min = 4, max = 5, message = "4-5 character")
     @Column(updatable = false, unique = true)
     private String projectIdentified;
-    
+
     @NotBlank(message = "Description is required")
     private String description;
 
@@ -113,16 +112,15 @@ public class Project{
         this.update_date = update_date;
     }
 
-
     @PrePersist
-    //do before it is saved to database
-    protected void onCreate(){
+    // do before it is saved to database
+    protected void onCreate() {
         this.create_date = new Date();
     }
 
     @PreUpdate
-    //do before update something
-    protected void onUpdate(){
+    // do before update something
+    protected void onUpdate() {
         this.update_date = new Date();
     }
 }

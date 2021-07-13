@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 public class ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
+
     public Project saveOrUpdateProject(Project project){
         //Logic
         try{
@@ -22,6 +23,7 @@ public class ProjectService {
             
         }
     }
+
     public Project findByProjectId(String projectId){
         Project projector = projectRepository.findByProjectIdentified(projectId.toUpperCase());
         if (projector == null){
@@ -33,11 +35,13 @@ public class ProjectService {
     public Iterable<Project> findAllProjects(){
         return projectRepository.findAll();
     }
+
     public void deleteProjectByPID(String projectId){
         Project project = projectRepository.findByProjectIdentified(projectId.toUpperCase());
         if (project == null){
             throw new ProjectIdException("Project " + projectId + " can not be deleted");
         }
         projectRepository.delete(project);
-    }
+    }  
+
 }
