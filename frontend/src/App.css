@@ -4,6 +4,7 @@ img {
 
 .navbar {
   background-color: #e3f2fd;
+  margin-top: 0;
 }
 .fa.fa-edit {
   color: #18a2b9;
@@ -16,7 +17,7 @@ img {
 
 .list-group-item.update:hover {
   cursor: -webkit-grab;
-  background-color: gainsboro;
+  background-color: rgb(0, 255, 234);
 }
 
 .list-group-item.board:hover {
@@ -37,7 +38,9 @@ img {
   margin-top: -24px;
   margin-bottom: -50px;
 }
-
+.fa.fa-flag-checkered {
+  color: blueviolet;
+}
 .landing-inner {
   padding-top: 80px;
 }
