@@ -18,17 +18,16 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Project {
     // The @Idannotation is inherited from javax.persistence.Id，
     // indicating the member field below is the primary key of current entity
-    @Id
     // The @GeneratedValue annotation is to configure the way of
     // increment of the specified column(field)
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotBlank(message = "Project name is required")
     private String projectName;
 
     @NotBlank(message = "Project Identifier is required")
-    @Size(min = 4, max = 5, message = "4-5 character")
+    @Size(min = 4, max = 5, message = "Please just type 4-5 character")
     @Column(updatable = false, unique = true)
     private String projectIdentified;
 
