@@ -40,6 +40,7 @@ class AddProject extends Component {
             start_date: this.state.start_date,
             end_date: this.state.end_date
           };
+          console.log(this.props);
           this.props.createProject(newProject, this.props.history);
 
     }
@@ -60,7 +61,7 @@ class AddProject extends Component {
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-8 m-auto">
-                                    <h5 className="display-4 text-center">Create / Edit Project form</h5>
+                                    <h5 className="display-4 text-center">Create Project form</h5>
                                     <hr />
                                     <form onSubmit={this.handleSubmit}>
                                         <div className="form-group">
