@@ -2,11 +2,14 @@ package com.example.backend.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotBlank;
@@ -40,9 +43,13 @@ public class Project {
     private Date end_date;
 
     @JsonFormat(pattern = "yyyy-mm-dd")
+    @Column(updatable = false)
     private Date create_date;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date update_date;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "project")
+    private Backlog backLog;
 
     public Project() {
     }
@@ -109,6 +116,14 @@ public class Project {
 
     public void setUpdate_date(Date update_date) {
         this.update_date = update_date;
+    }
+
+    public Backlog getBacklog() {
+        return backLog;
+    }
+
+    public void setBacklog(Backlog backlog) {
+        this.backLog = backlog;
     }
 
     @PrePersist
