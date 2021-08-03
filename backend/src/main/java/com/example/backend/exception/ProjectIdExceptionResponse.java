@@ -1,12 +1,11 @@
 package com.example.backend.exception;
 
-public class ProjectIdExceptionResponse{
+public class ProjectIdExceptionResponse {
     private String projectIdentified;
 
-    public ProjectIdExceptionResponse(String projectIdentifer) {
-        this.projectIdentified = projectIdentifer;
+    public ProjectIdExceptionResponse(String projectIdentifed) {
+        this.projectIdentified = projectIdentifed;
     }
-
 
     public String getProjectIdentified() {
         return this.projectIdentified;
@@ -15,6 +14,5 @@ public class ProjectIdExceptionResponse{
     public void setProjectIdentified(String projectIdentified) {
         this.projectIdentified = projectIdentified;
     }
-    
 
 }

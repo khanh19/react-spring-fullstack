@@ -8,13 +8,19 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-
 @ControllerAdvice
 @RestController
-public class CustomResponseEntityExceptionHandler  extends ResponseEntityExceptionHandler{
-        @ExceptionHandler
-        public final ResponseEntity<Object> handdleProjectIdException(ProjectIdException ex, WebRequest request){
-            ProjectIdExceptionResponse exceptionResponse = new ProjectIdExceptionResponse(ex.getMessage());
-            return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
-        }
+public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+    @ExceptionHandler
+    public final ResponseEntity<Object> handdleProjectIdException(ProjectIdException ex, WebRequest request) {
+        ProjectIdExceptionResponse exceptionResponse = new ProjectIdExceptionResponse(ex.getMessage());
+        return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler
+    public final ResponseEntity<Object> handleProjectNotFoundException(ProjectNotFoundException except,
+            WebRequest req) {
+        ProjectNotFoundExceptionResponse exceptionResponse = new ProjectNotFoundExceptionResponse(except.getMessage());
+        return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
 }
