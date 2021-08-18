@@ -4,7 +4,7 @@ const initialState = {
     projectList: [],
     project: {}
 };
-export default function(state = initialState, action){
+export default function projectReducer(state = initialState, action){
     switch (action.type) {
         case GET_PROJECTS:
             return {
@@ -20,7 +20,7 @@ export default function(state = initialState, action){
             return{
                 ...state, projectList: state.projectList.filter(
                     project => project.projectIdentified !== action.payload
-                  )
+                )
             };
         default:
             return state;
